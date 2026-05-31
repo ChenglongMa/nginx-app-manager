@@ -1,0 +1,12 @@
+mode: development
+data_dir: ./mock_nginx/var/lib/nginx-app-manager
+backup_dir: ./mock_nginx/var/backups/nginx-app-manager
+log_dir: ./mock_nginx/var/log/nginx-app-manager
+apps_file: ./mock_nginx/var/lib/nginx-app-manager/apps.yaml
+nginx:
+  nginx_conf: ./mock_nginx/etc/nginx/nginx.conf
+  sites_available: ./mock_nginx/etc/nginx/sites-available
+  sites_enabled: ./mock_nginx/etc/nginx/sites-enabled
+  nginx_bin: nginx
+  systemctl_bin: systemctl
+  service_name: nginx
