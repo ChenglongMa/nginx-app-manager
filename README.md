@@ -92,20 +92,20 @@ nam doctor
 Create runtime directories:
 
 ```bash
-sudo nam fix --create-dirs
+sudo "$(command -v nam)" fix --create-dirs
 ```
 
 Install/start/enable Nginx on Ubuntu/Debian:
 
 ```bash
-sudo nam fix --install-nginx --start-service --enable-service
+sudo "$(command -v nam)" fix --install-nginx --start-service --enable-service
 ```
 
 Add and enable the default Streamlit-style examples:
 
 ```bash
-sudo nam app add app1.example.com --upstream-port 8501 --listen-port 8080 --enable
-sudo nam app add demo.example.com --upstream-port 8502 --listen-port 8080 --enable
+sudo "$(command -v nam)" app add app1.example.com --upstream-port 8501 --listen-port 8080 --enable
+sudo "$(command -v nam)" app add demo.example.com --upstream-port 8502 --listen-port 8080 --enable
 ```
 
 List and inspect:
@@ -119,11 +119,11 @@ nam --json app list
 Update, disable, enable, and delete:
 
 ```bash
-sudo nam app update app1.example.com --upstream-port 8510
-sudo nam app disable app1.example.com
-sudo nam app enable app1.example.com
-sudo nam app delete app1.example.com --yes
-sudo nam app delete app1.example.com --purge --yes
+sudo "$(command -v nam)" app update app1.example.com --upstream-port 8510
+sudo "$(command -v nam)" app disable app1.example.com
+sudo "$(command -v nam)" app enable app1.example.com
+sudo "$(command -v nam)" app delete app1.example.com --yes
+sudo "$(command -v nam)" app delete app1.example.com --purge --yes
 ```
 
 `delete` removes manager state and disables the Nginx site. It does not stop or
@@ -139,7 +139,7 @@ nam app add app1.example.com --upstream-port 8501 --enable --dry-run
 Launch the TUI:
 
 ```bash
-sudo nam tui
+sudo "$(command -v nam)" tui
 ```
 
 ## Development Mode
@@ -168,7 +168,7 @@ normal user where permissions allow. Production write operations usually need
 root because they touch `/etc/nginx`, `/var/lib`, `/var/backups`, and systemd.
 
 The tool does not sprinkle `sudo` inside subprocess calls. Run mutating
-production commands with `sudo nam ...`.
+production commands with `sudo "$(command -v nam)" ...`.
 
 ## Generated Nginx Config
 
